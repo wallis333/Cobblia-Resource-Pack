@@ -1,6 +1,7 @@
 param(
     [Parameter(Mandatory=$true)][string]$ZipPath,
-    [string]$Message = "Update resourcepack"
+    [ValidatePattern('^updated on \d{2}/\d{2}/\d{4}$')]
+    [string]$Message = ("updated on " + (Get-Date -Format 'MM/dd/yyyy'))
 )
 
 # deploy_resourcepack.ps1
